@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoding Strategies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <main class="container">
+        <header>
+            <h1>The Art of Generation</h1>
+            <p class="subtitle">An interactive dissection of Large Language Model decoding strategies.</p>
+        </header>
+
+        <div class="dashboard-layout">
+            <aside class="sidebar-missions">
+                <div class="mission-list">
+                    <div class="mission-card" data-mission="0">
+                        <div class="mission-level">Level 0</div>
+                        <h3>The Probability Engine</h3>
+                        <p>What are Logits?</p>
+                    </div>
+                    <div class="mission-card" data-mission="1">
+                        <div class="mission-level">Level 1</div>
+                        <h3>The Heat of the Moment</h3>
+                        <p>Understanding Temperature.</p>
+                    </div>
+                    <div class="mission-card" data-mission="2">
+                        <div class="mission-level">Level 2</div>
+                        <h3>Absolute Chaos</h3>
+                        <p>High Temperature Hallucinations.</p>
+                    </div>
+                    <div class="mission-card" data-mission="3">
+                        <div class="mission-level">Level 3</div>
+                        <h3>The Top-K Cutoff</h3>
+                        <p>Truncating the long tail.</p>
+                    </div>
+                    <div class="mission-card" data-mission="4">
+                        <div class="mission-level">Level 4</div>
+                        <h3>Nucleus Sampling</h3>
+                        <p>Dynamic thresholding with Top-P.</p>
+                    </div>
+                    <div class="mission-card boss-card" data-mission="5">
+                        <div class="mission-level">🏆 Boss Level</div>
+                        <h3>Determinism Challenge</h3>
+                        <p>Force a specific word.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="main-content">
+                <div class="playground glass-panel">
+                    <div class="playground-header">
+                        <h2>Interactive Logit Engine</h2>
+                    </div>
+                    
+                    <div class="input-group">
+                        <textarea id="text-input" class="interactive-input" placeholder="Type a prompt to predict the next word..." rows="2">The meaning of life is</textarea>
+                    </div>
+
+                    <div class="sliders-container">
+                        <div class="slider-group">
+                            <label>Temperature: <span id="temperature-val" class="mono">1.0</span></label>
+                            <input type="range" id="temperature" min="0.1" max="5.0" step="0.1" value="1.0">
+                        </div>
+                        <div class="slider-group">
+                            <label>Top-K: <span id="top-k-val" class="mono">50</span></label>
+                            <input type="range" id="top-k" min="1" max="50" step="1" value="50">
+                        </div>
+                        <div class="slider-group">
+                            <label>Top-P: <span id="top-p-val" class="mono">1.0</span></label>
+                            <input type="range" id="top-p" min="0.1" max="1.0" step="0.05" value="1.0">
+                        </div>
+                    </div>
+
+                    <div class="output-container">
+                        <h3>Next Token Probabilities</h3>
+                        <div id="chart-display" class="chart-display">
+                            <!-- Bars injected via JS -->
+                        </div>
+                    </div>
+
+                    <div id="insight-panel" class="insight-panel hidden">
+                        <h3 id="insight-title">💡 Insight</h3>
+                        <p id="insight-text">Select a mission above to load an experiment.</p>
+                        <div class="prompt-tip">
+                            <strong id="tip-label">🎓 Pro Tip:</strong> <span id="insight-tip">Slide the Temperature up to see the probabilities flatten!</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Architected by Raj Raunak Kumar (PhD Student, CSE Department) , CVPR Lab IIT Patna</p>
+        </footer>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
